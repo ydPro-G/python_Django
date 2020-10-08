@@ -10,4 +10,4 @@ class Topic(models.Model): # 创建一个类，继承Model，只有两个属性�
 
     def _str_(self): # 方法，显示模型的简单表示
         """返回模型的字符串表示"""
-        return self.text # 返回存储在属性中的字符串
+        return self.text # 返回存储在属性中的字符串                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
