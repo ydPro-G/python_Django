@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # 包含项目的url
+    url(r"^users/", include(("users.urls", 'users'), namespace='aaa')),
 ]
