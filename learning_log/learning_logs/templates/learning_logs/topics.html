@@ -5,11 +5,11 @@
  <p>Topics</p>
 
  <ul>
-     {% for topic in topics %} <!--for循环模板标签-->
-     <li>{{ topic }}</li>
+     {% for topic in topics %} <!--for循环模板标签--><!--遍历字典content中的列表topics-->
+     <li>{{ topic }}</li><!--将每个主题都转化成一个列表项-->
      {% empty %}
      <li>No topics have been added yet</li>
-     {% endfor %}
+     {% endfor %} <!--结束循环-->
  </ul>
 
 {% endblock content %}
