@@ -8,4 +8,7 @@ urlpatterns = [   # 一个列表
     # 第二个实参：指定要调用的视图函数，url与第一个实参匹配就调用这个视图函数
     # 第三个实参：指定这个url模式的名称指定为index
     path('',views.index,name='index'), 
+    
+    # 显示所有主题
+    path('topics/',views.topics, name='topics'),
 ]
