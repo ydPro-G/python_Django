@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>学员管理系统-by G</title>
+    </head>
+    <body>
+        <ul> 
+            <!--for语句-->
+            {% for student in students %} 
+            <!--student.get_status_display:对于设置了choices（选择）的字段，Django会帮我们提供一个方法，用来获取这个字段要展示的值-->
+                <li>{{ student.name }} - {{ student.get_status_display }}</li> 
+            <!--结束for循环-->
+                {% endfor %} 
+        </ul>
+    </body>
+
+    <!--模板语法：两侧的空格是Django的编码规范。意思是:从上下文中获取words变量，这个变量是再index中调用render是传递过来的-->
+</html>
+

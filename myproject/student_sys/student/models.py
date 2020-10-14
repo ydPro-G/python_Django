@@ -1,6 +1,6 @@
 from django.db import models
 
-# 创建模板
+# 设计模型：通过数据-模型语句，通过对象关系映射器来使用python代码描述数据库结构。
 
 #编写一个范围的类
 class Student(models.Model):
@@ -15,7 +15,7 @@ class Student(models.Model):
         (2,'拒绝'),
     ]
 
-    # 编写相关字段 功能简介参考：https://www.cnblogs.com/limaomao/p/9255148.html
+    # 通过数据-模型语句创建数据库 功能简介参考：https://www.cnblogs.com/limaomao/p/9255148.html
     name = models.CharField(max_length=128,verbose_name='姓名')
     sex = models.IntegerField(choices=SEX_ITEMS,verbose_name='性别')# 整数类型 数据库11位int类型
     profession = models.CharField(max_length=128,verbose_name='职业')# 字符串类型，映射到数据库转化成varchar类型 

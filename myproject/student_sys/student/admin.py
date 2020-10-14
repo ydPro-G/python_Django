@@ -1,12 +1,12 @@
 from django.contrib import admin
 from .models import Student # 导入models文件Student类
 
-# Register your models here.
+# 注册在models.py里设置的模型
 
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ('id','name','sex','profession','email','qq','phone','status','created_time')
-    list_filter = ('sex','status','created_time')
-    search_fields = ('name','profession')
+    list_display = ('id','name','sex','profession','email','qq','phone','status','created_time') # admin页面列表展示
+    list_filter = ('sex','status','created_time') # 列表筛选器
+    search_fields = ('name','profession') # 搜索字段
     fieldsets = (
         (None,{
             'fields':(
@@ -18,4 +18,4 @@ class StudentAdmin(admin.ModelAdmin):
         }),
     )
 
-admin.site.register(Student,StudentAdmin)
+admin.site.register(Student,StudentAdmin) # 注册模型Student(models.py设置)
