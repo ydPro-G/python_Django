@@ -1,4 +1,4 @@
-# 监听端口，接受外部请求
+# 监听端口，接受外部请求。
 import errno
 import socket
 import threading
