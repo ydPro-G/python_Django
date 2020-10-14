@@ -13,7 +13,7 @@ response_params = [  # 响应参数
     'Date:Sat,18 apr 2020 01:01:01 GMT', #消息报头-时间
     'Content-Type:text/html; charset=utf-8', # 消息报头-内容类型
     'Content-Length: {}\r\n', format(len(body.encode())), # 消息报头-内容长度
-    body, #body也响应
+    body, #响应内容
 ]
 response = '\r\n'.join(response_params) # 返回的HTTP数据要求
 
