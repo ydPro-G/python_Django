@@ -4,6 +4,7 @@
         <title>学员管理系统-by G</title>
     </head>
     <body>
+        <h3><a href="/admin">Admin</a></h3>
         <ul> 
             <!--for语句-->
             {% for student in students %} 
@@ -12,6 +13,15 @@
             <!--结束for循环-->
                 {% endfor %} 
         </ul>
+        <hr/>
+        <form action="/" method="post"> <!--方法post-->
+            <!--对提交数据安全性做的校验，没有这个token，提交过去的数据是无效的-->
+            {% csrf_token %}
+            <!--在模板中添加form-->
+            {{ form }}
+            <input type="submit" value="Submit" />
+        </form>
+
     </body>
 
     <!--模板语法：两侧的空格是Django的编码规范。意思是:从上下文中获取words变量，这个变量是再index中调用render是传递过来的-->

@@ -31,3 +31,8 @@ class Student(models.Model):
     
     class Meta:
         verbose_name = verbose_name_plural = '学员信息'
+    
+    @classmethod # 不需要实例化，要使用student类的方法直接类名.方法名()调用
+    def get_all(cls):# cls：表示自身类的参数
+        # 返回所有的学生信息
+        return cls.objects.all() #从数据库中查询出来的结果一般是一个集合，这个集合叫做QuerySet。Entry.objects.all()就是QuerySet查询所有的Entry目录
