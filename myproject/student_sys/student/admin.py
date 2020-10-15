@@ -5,7 +5,7 @@ from .models import Student # 导入models文件Student类
 
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('id','name','sex','profession','email','qq','phone','status','created_time') # admin页面列表展示
-    list_filter = ('sex','status','created_time') # 列表筛选器
+    list_filter = ('sex','status','created_time') # 指定admin页面列表项排序字段，性别，状态，创建时间
     search_fields = ('name','profession') # 指定admin页面搜索的字段，只能通过姓名或职业搜索
     fieldsets = (
         (None,{
