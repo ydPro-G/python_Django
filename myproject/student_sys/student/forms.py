@@ -1,4 +1,6 @@
-# 提交数据
+# 设置显示的提交项 
+
+
 from django import forms # 导入django表单，有表单功能
 
 from .models import Student # 导入模型，类
@@ -13,7 +15,7 @@ from .models import Student # 导入模型，类
 #     qq = forms.CharField(label='QQ',max_length=128)
 #     phone = forms.CharField(label='手机',max_length=128)
 
-# 通过继承ModelForm,写下需要展示的fields
+# 通过继承ModelForm,设置页面可提交数据
 class StudentForm(forms.ModelForm):
     # 设置QQ输入限制
     def clean_qq(self):
@@ -28,6 +30,6 @@ class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = (
-            'name', 'sex', 'profession', 'email', 'qq', 'phone'
+            'name', 'sex', 'profession', 'email', 'qq',  # 设置显示的提交项
         )
 
