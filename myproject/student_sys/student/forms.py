@@ -28,8 +28,10 @@ class StudentForm(forms.ModelForm):
 
 
     class Meta:
-        model = Student
-        fields = (
-            'name', 'sex', 'profession', 'email', 'qq',  # 设置显示的提交项
+        # 模型
+        model = Student 
+        # 设置显示的提交项
+        fields = ( 
+            'name', 'sex', 'profession', 'email', 'qq',  
         )
 

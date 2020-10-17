@@ -43,9 +43,11 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
+    'student.middlewares.TimeItMiddleware',
+
+    'django.middleware.security.SecurityMiddleware', # 安全中间件
+    'django.contrib.sessions.middleware.SessionMiddleware', # 会话中间件
+    'django.middleware.common.CommonMiddleware', # 公共中间件
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',

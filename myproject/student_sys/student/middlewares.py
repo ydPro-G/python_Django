@@ -12,6 +12,7 @@ class TimeItMiddleware(MiddlewareMixin):
     # 两个返回值：HttpResponse或None。如果返回HttpResponse，接下来处理方法只会执行process_response，如果是None，那么Django会帮你执行view函数，得到最终的response
     # 注意：如果你middleare是settings配置的MIDDLEARE第一个，那么剩下的middleaware也不会执行
     def process_request(self,request):
+        self.start_time = time.time()
         return
     
     # 在process_request方法后执行，参数如同代码所示
@@ -34,14 +35,28 @@ class TimeItMiddleware(MiddlewareMixin):
         pass
     
     # 执行完上面的方法，并且Django帮我们执行完view，拿到最终的response后，如果使用了模板的response，就会来到这个方法中
-    # 在这个方法中可以对response做操作，比如Content-Type设置或其他header头设置
+    # 在这个方法中可以对response做操作，比如Content-Type设置或其他header设置
     def process_template_response(self,request,response):
         return response
     
     # 所有流程都处理完就来到了这个方法。这个方法逻辑和process_template_response完全一样，只是后者针对带有模板的response处理
     def process_response(self,request,response):
+         # 现在时间 - 打开时间
+        costed = time.time() - self.start_time
+        # {:.2f} str.format()格式化数字的方法。
+        # 作用：保留小数点后两位
+        print('request to response cose: {:.2f}s'.format(costed))
         return response
 
 
 
 
+
+
+
+
+
+
+
+#据上图，整个响应http过程可以看做是一条串联的管道，对于每个http请求我们都想插入相同的逻辑例如数据过滤、日志统计的目的。
+#为了不和业务逻辑混淆一块，提高代码复用率，AOP提倡从横向切面思路向管道某个位置插入一段代码逻辑，这样就实现在任何业务逻辑前后都有相同代码逻辑段，开发者只需专注写业务逻辑，既不影响整个响应http过程，而且隔离了业务逻辑，实现高内聚低耦合原则。

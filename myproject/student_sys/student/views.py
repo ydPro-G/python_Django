@@ -8,15 +8,16 @@ from .models import Student # 导入models模板Student类
 
 
 # 创建视图：开发首页
-# 注意：渲染模板/静态页面时，会去每个APP下面查找，就是settings设置的APP
-# 并且是顺序查找，如果有2个APP，都存在index.html，那么都会加载前面的APP的index.html
+# 注意：渲染模板/静态页面时，会去每个APP下面查找，就是settings设置的APP，并且是顺序查找，如果有2个APP，都存在index.html，那么都会加载前面的APP的index.html
 # class-based view 和 function view 的区别
 
 
 # 创建 class-based view
 class IndexView(View):
+    # 变量保存index.html
     template_name = 'index.html'
 
+    # 获取数据内容
     def get_context(self):
         # 数据获取逻辑封装到了Model层，通过Student模型拿到所有的student数据
         students = Student.get_all() 
