@@ -27,7 +27,7 @@ class TimeItMiddleware(MiddlewareMixin):
         costed = time.time() - start
         print('process view: {:.2f}s'.format(costed))
         return response
-    
+   
     # 发生异常时，会进入这个方法
     # 在将要调用view中出现异常，或返回的模板response在渲染时发生的异常，如果是在process_view手动调用了func，就不会出发了
     # 可以选择处理异常，返回一个含有异常信息的TttpResponse，或直接返回None，不处理
@@ -46,7 +46,7 @@ class TimeItMiddleware(MiddlewareMixin):
         # {:.2f} str.format()格式化数字的方法。
         # 作用：保留小数点后两位
         print('request to response cose: {:.2f}s'.format(costed))
-        return response
+        return response 
 
 
 

@@ -26,11 +26,17 @@ class Student(models.Model):
     status = models.IntegerField(choices=STATUS_ITEMS,default=0,verbose_name='审核状态')
     created_time = models.DateField(auto_now_add=True,editable=False,verbose_name='创建时间')
 
-    def __str__(self):
-        return '<Student: {}>'.format(self.name) # 返回函数
-    
     class Meta:
         verbose_name = verbose_name_plural = '学员信息'
+    
+    def __str__(self):
+        return '<Student: {}>'.format(self.name) # 返回函数
+
+    # 展示sex(性别)这个字段的中文显示
+    @property
+    def sex_show(self):
+        return dict(self.SEX_ITEMS)[self.sex]
+    
     
     @classmethod # 不需要实例化，要使用student类的方法直接类名.方法名()调用
     def get_all(cls):# cls：表示自身类的参数
