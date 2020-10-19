@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Student # 导入models文件Student类
 
 # 注册在models.py里设置的模型
-# 后台显示与操作的设置文件
+# 设置管理后台的文件
 
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('id','name','sex','profession','email','qq','phone','status','created_time') # admin页面列表展示

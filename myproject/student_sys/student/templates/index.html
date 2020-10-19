@@ -17,7 +17,7 @@
         <form action="/" method="post"> <!--方法post-->
             <!--对提交数据安全性做的校验，没有这个token，提交过去的数据是无效的-->
             {% csrf_token %}
-            <!--在模板中添加form-->
+            <!--forms文件-->
             {{ form }}
             <input type="submit" value="Submit" />
         </form>
