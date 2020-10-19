@@ -1,5 +1,8 @@
 from django.db import models
 
+# Django本身基于MVC架构，即Model（模型）+View（视图）+ Controller（控制器）设计模式
+#在MVC或者说MTV设计模式中，模型（M）代表对数据库的操作。
+
 # 设计模型：通过数据-模型语句，通过对象关系映射器来使用python代码描述数据库结构。
 
 #编写一个范围的类
@@ -26,6 +29,7 @@ class Student(models.Model):
     status = models.IntegerField(choices=STATUS_ITEMS,default=0,verbose_name='审核状态')
     created_time = models.DateField(auto_now_add=True,editable=False,verbose_name='创建时间')
 
+    # 设置admin页面的元数据名称
     class Meta:
         verbose_name = verbose_name_plural = '学员信息'
     
